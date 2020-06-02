@@ -1,16 +1,23 @@
 makeCacheMatrix <- function(x = matrix()) { 
+
 # make inverse null in the first place in case of misoperation
 invrs <- NULL set <- function(y) {
-#in this function inverse, and set is applied into the function
 x <- y invrs <- NULL } get <- function() x
+
 # transfer variables into the two functions 
 setinverse <- function(inverse) invrs <- inverse getinverse <- function() invrs
-# make value into variables
+# set value into variables
 list(set=set, get=get, setinverse=setinverse, getinverse = getinverse) }
 
 # return a matrix that is the inverse of 'x'
-cacheSolve <- function(x, ...) 
-{ # to get the value from x in getinverse
-invr <= x$getinverse() if(!is.null(invr)) { message("Getting Cached Data:-") return(invr) }
+cacheSolve <- function(x, ...) {
+# to get the value from x in getinverse
+invrs <= x$getinverse() 
+if(!is.null(invrs))
+{message("Getting Cached Data:-") return(invrs) }
 # if the invr is null, then 
-matrx <- x$get() invr <- solve(matrx, ...) x$setinverse(invr) invr }
+matrx <- x$get() 
+invr <- solve(matrx, ...) 
+x$setinverse(invrs) 
+invrs
+}
